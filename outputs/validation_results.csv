@@ -1,0 +1,111 @@
+status,validation,passed,msg
+pass,V01 schema 2016,true,"10/10 present, 92 cols total"
+pass,V01 schema 2017,true,"10/10 present, 92 cols total"
+pass,V01 schema 2018,true,"10/10 present, 92 cols total"
+pass,V01 schema 2019,true,"10/10 present, 92 cols total"
+pass,V01 schema 2020,true,"10/10 present, 92 cols total"
+pass,V01 schema 2021,true,"10/10 present, 92 cols total"
+pass,V01 schema 2022,true,"10/10 present, 92 cols total"
+pass,V01 schema 2023,true,"10/10 present, 92 cols total"
+pass,V01 schema 2024,true,"10/10 present, 92 cols total"
+pass,V02 Crash_Year 2016,true,distinct values = [2016]
+pass,V02 Crash_Year 2017,true,distinct values = [2017]
+pass,V02 Crash_Year 2018,true,distinct values = [2018]
+pass,V02 Crash_Year 2019,true,distinct values = [2019]
+pass,V02 Crash_Year 2020,true,distinct values = [2020]
+pass,V02 Crash_Year 2021,true,distinct values = [2021]
+pass,V02 Crash_Year 2022,true,distinct values = [2022]
+pass,V02 Crash_Year 2023,true,distinct values = [2023]
+pass,V02 Crash_Year 2024,true,distinct values = [2024]
+pass,V03 bounds 2016,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2017,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2018,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2019,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2020,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2021,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2022,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2023,true,"0 null, 0 out-of-TX"
+pass,V03 bounds 2024,true,"0 null, 0 out-of-TX"
+pass,V04 dist cap 2016,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V04 dist cap 2017,true,0 violations; max Distance_Miles among filled = 0.9999
+pass,V04 dist cap 2018,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V04 dist cap 2019,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V04 dist cap 2020,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V04 dist cap 2021,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V04 dist cap 2022,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V04 dist cap 2023,true,0 violations; max Distance_Miles among filled = 0.9999
+pass,V04 dist cap 2024,true,0 violations; max Distance_Miles among filled = 1.0000
+pass,V05 ZIP 2016,true,0 null ZIP rows
+pass,V05 ZIP 2017,true,0 null ZIP rows
+pass,V05 ZIP 2018,true,0 null ZIP rows
+pass,V05 ZIP 2019,true,0 null ZIP rows
+pass,V05 ZIP 2020,true,0 null ZIP rows
+pass,V05 ZIP 2021,true,0 null ZIP rows
+pass,V05 ZIP 2022,true,0 null ZIP rows
+pass,V05 ZIP 2023,true,0 null ZIP rows
+pass,V05 ZIP 2024,true,0 null ZIP rows
+pass,V06 year_gap 2016,true,0 mismatches
+pass,V06 year_gap 2017,true,0 mismatches
+pass,V06 year_gap 2018,true,0 mismatches
+pass,V06 year_gap 2019,true,0 mismatches
+pass,V06 year_gap 2020,true,0 mismatches
+pass,V06 year_gap 2021,true,0 mismatches
+pass,V06 year_gap 2022,true,0 mismatches
+pass,V06 year_gap 2023,true,0 mismatches
+pass,V06 year_gap 2024,true,0 mismatches
+pass,V07 VMT 2016,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2017,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2018,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2019,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2020,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2021,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2022,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2023,true,0 mismatches (rtol > 1e-09)
+pass,V07 VMT 2024,true,0 mismatches (rtol > 1e-09)
+pass,V08 AADT 2016,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2017,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2018,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2019,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2020,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2021,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2022,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2023,true,0 mismatches (rtol > 1e-6)
+pass,V08 AADT 2024,true,0 mismatches (rtol > 1e-6)
+pass,V09 match_type 2016,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2017,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2018,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2019,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2020,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2021,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2022,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2023,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,V09 match_type 2024,true,"0 filled+wrong-label, 0 missing+wrong-label"
+pass,"V10 BallTree vs brute-force (n=1000, year=2024)",true,"0 ID mismatches, 0 distance mismatches (max diff 1.11e-16 mi)"
+pass,V11 speed,true,"BallTree 0.521s, brute-force 68.702s, 131.8x speedup"
+pass,V12 year_gap dist 2016,true,"median=6, p90=7, max=12, n=485,469"
+pass,V12 year_gap dist 2017,true,"median=5, p90=6, max=13, n=472,854"
+pass,V12 year_gap dist 2018,true,"median=4, p90=5, max=14, n=478,170"
+pass,V12 year_gap dist 2019,true,"median=3, p90=4, max=15, n=492,698"
+pass,V12 year_gap dist 2020,true,"median=2, p90=3, max=16, n=412,779"
+pass,V12 year_gap dist 2021,true,"median=2, p90=2, max=17, n=479,606"
+pass,V12 year_gap dist 2022,true,"median=1, p90=3, max=18, n=483,860"
+pass,V12 year_gap dist 2023,true,"median=1, p90=4, max=19, n=367,744"
+pass,V12 year_gap dist 2024,true,"median=2, p90=5, max=20, n=475,897"
+pass,V13 AADT range 2016,true,"median=6,786, p5=220, p95=37,329, <10: 600, >500k: 0"
+pass,V13 AADT range 2017,true,"median=6,818, p5=214, p95=37,732, <10: 660, >500k: 0"
+pass,V13 AADT range 2018,true,"median=7,042, p5=221, p95=39,340, <10: 681, >500k: 0"
+pass,V13 AADT range 2019,true,"median=7,325, p5=233, p95=40,162, <10: 668, >500k: 0"
+pass,V13 AADT range 2020,true,"median=6,280, p5=192, p95=35,853, <10: 686, >500k: 0"
+pass,V13 AADT range 2021,true,"median=7,151, p5=231, p95=39,716, <10: 721, >500k: 0"
+pass,V13 AADT range 2022,true,"median=7,362, p5=240, p95=40,395, <10: 627, >500k: 0"
+pass,V13 AADT range 2023,true,"median=7,646, p5=247, p95=41,978, <10: 487, >500k: 0"
+pass,V13 AADT range 2024,true,"median=7,859, p5=250, p95=43,518, <10: 651, >500k: 0"
+pass,V14 fill rate 2016,true,"478,562/497,189 (96.25%)"
+pass,V14 fill rate 2017,true,"466,324/484,825 (96.18%)"
+pass,V14 fill rate 2018,true,"471,780/490,927 (96.10%)"
+pass,V14 fill rate 2019,true,"485,867/504,885 (96.23%)"
+pass,V14 fill rate 2020,true,"407,145/423,987 (96.03%)"
+pass,V14 fill rate 2021,true,"472,915/491,698 (96.18%)"
+pass,V14 fill rate 2022,true,"477,165/496,021 (96.20%)"
+pass,V14 fill rate 2023,true,"362,885/377,107 (96.23%)"
+pass,V14 fill rate 2024,true,"469,788/488,479 (96.17%)"
