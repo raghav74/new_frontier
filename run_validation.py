@@ -1,40 +1,21 @@
+import argparse
+import os
+
+import config
 from validation_util import *
 
-OUTPUTS_DIR = "outputs"
-STATIONS_PATH = "old_aadt.csv"
-
-MAX_STATION_MILES = 1.0
-TX_LAT_MIN, TX_LAT_MAX = 25.8, 36.5
-TX_LON_MIN, TX_LON_MAX = -106.6, -93.5
-
-REQUIRED_COLS = [
-    "Crash_ID",
-    "Latitude",
-    "Longitude",
-    "ZIP_Code",
-    "Adt_Curnt_Amt",
-    "Distance_Miles",
-    "Station_Year",
-    "year_gap",
-    "aadt_match_type",
-    "VMT_Multiplier",
-]
-
-TX_VMT_MILLIONS = {
-    2015: 258300,
-    2016: 270700,
-    2017: 273200,
-    2018: 282200,
-    2019: 288400,
-    2020: 260000,
-    2021: 285200,
-    2022: 291100,
-    2023: 301500,
-    2024: 307800,
-    2025: 307800,
-}
-
 ATOL_VMT = 1e-9
+
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--state", required=True, choices=sorted(config.STATE_CONFIGS.keys()))
+args = ap.parse_args()
+
+state_cfg = config.STATE_CONFIGS[args.state]
+OUTPUTS_DIR = os.path.join(config.OUT_DIR_ROOT, args.state)
+lat_min, lat_max, lon_min, lon_max = state_cfg["bbox"]
+VMT = state_cfg["vmt"]
+
 
 results = []
 
@@ -51,13 +32,13 @@ total_rows = 0
 total_filled = 0
 
 for year, path in year_files:
-    validate_schema(results, year, path, REQUIRED_COLS)
+    validate_schema(results, year, path, config.REQUIRED_COLS)
     validate_crash_year(results, year, path)
-    validate_bounds(results, year, path, TX_LAT_MIN, TX_LAT_MAX, TX_LON_MIN, TX_LON_MAX)
-    validate_distance_cap(results, year, path, MAX_STATION_MILES)
+    validate_bounds(results, year, path, lat_min, lat_max, lon_min, lon_max)
+    validate_distance_cap(results, year, path, config.MAX_STATION_MILES)
     validate_zip(results, year, path)
     validate_year_gap(results, year, path)
-    validate_vmt(results, year, path, TX_VMT_MILLIONS, ATOL_VMT)
+    validate_vmt(results, year, path, VMT, ATOL_VMT)
     validate_aadt(results, year, path)
     validate_match_type(results, year, path)
 

@@ -1,8 +1,5 @@
 import os
-import time
-import numpy as np
 import polars as pl
-from sklearn.neighbors import BallTree
 
 # V01 — Schema Validation
 # V02 — Crash Year Validation
@@ -68,7 +65,7 @@ def validate_crash_year(results, year, path):
     )
 
 
-def validate_bounds(results, year, path, tx_lat_min, tx_lat_max, tx_lon_min, tx_lon_max):
+def validate_bounds(results, year, path, lat_min, lat_max, lon_min, lon_max):
     df = pl.read_csv(path, columns=["Latitude", "Longitude"])
 
     output = df.select([
@@ -78,10 +75,10 @@ def validate_bounds(results, year, path, tx_lat_min, tx_lat_max, tx_lon_min, tx_
         ).sum().alias("null_count"),
 
         (
-            (pl.col("Latitude") < tx_lat_min) |
-            (pl.col("Latitude") > tx_lat_max) |
-            (pl.col("Longitude") < tx_lon_min) |
-            (pl.col("Longitude") > tx_lon_max)
+            (pl.col("Latitude") < lat_min) |
+            (pl.col("Latitude") > lat_max) |
+            (pl.col("Longitude") < lon_min) |
+            (pl.col("Longitude") > lon_max)
         ).sum().alias("out_of_bounds")
     ])
 
@@ -92,7 +89,7 @@ def validate_bounds(results, year, path, tx_lat_min, tx_lat_max, tx_lon_min, tx_
         results,
         f"V03 bounds {year}",
         null_count == 0 and out_of_bounds == 0,
-        f"{null_count} null, {out_of_bounds} out-of-TX"
+        f"{null_count} null, {out_of_bounds} out-of-state"
     )
 
 
@@ -155,13 +152,13 @@ def validate_year_gap(results, year, path):
     )
 
 
-def validate_vmt(results, year, path, tx_vmt_millions, atol_vmt):
+def validate_vmt(results, year, path, vmt, atol_vmt):
     df = pl.read_csv(path, columns=["Crash_Year", "Station_Year", "VMT_Multiplier"])
     df = df.drop_nulls(["VMT_Multiplier", "Station_Year"])
 
     df = df.with_columns([
-        pl.col("Crash_Year").cast(pl.Int64).replace(tx_vmt_millions).alias("VMT_Crash"),
-        pl.col("Station_Year").cast(pl.Int64).replace(tx_vmt_millions).alias("VMT_Station"),
+        pl.col("Crash_Year").cast(pl.Int64).replace(vmt).alias("VMT_Crash"),
+        pl.col("Station_Year").cast(pl.Int64).replace(vmt).alias("VMT_Station"),
     ])
 
     df = df.with_columns(
