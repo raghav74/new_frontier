@@ -149,7 +149,13 @@ def load_master(state_cfg):
             skip_rows=state_cfg['master_skip_rows'],
             ignore_errors=True,
             low_memory=True,
-        )
+        ).select([
+            "Crash_ID",
+            "Crash_Date",
+            "Latitude",
+            "Longitude",
+            "ZIP_Code",
+        ])
         .rename(rename_map, strict=False)
         .unique(subset=['Crash_ID'])
         .with_columns(

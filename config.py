@@ -48,43 +48,45 @@ REQUIRED_COLS = [
 #
 # ----------------------------------------------------------------------------
 
+from pathlib import Path
+
+DATA_DIR = Path("master_data")
+OUT_DIR_ROOT = Path("outputs")
+
 STATE_CONFIGS = {
     'TX': {
-        'stations_path':    'old_aadt.csv',
-        'master_path':      'master_cleaned_dataset_2015-2024.csv',
-        'zip_geojson_path': 'tx_texas_zip_codes_geo.min.json',
-        'zip_attr_col':     'ZCTA5CE10',
+    'stations_path':    DATA_DIR / 'old_aadt.csv',
+    'master_path':      DATA_DIR / 'master_cleaned_dataset_2015-2024.csv',
+    'zip_geojson_path': DATA_DIR / 'tx_texas_zip_codes_geo.min.json',
+    'zip_attr_col':     'ZCTA5CE10',
 
-        'master_skip_rows': 0,
-        # List of date formats to try in order (first to parse wins).
-        # Some rows have YYYY years and some have YY (e.g. '06/07/23' = 2023).
-        'date_format':      ['%m/%d/%Y', '%m/%d/%y'],
+    'master_skip_rows': 0,
+    'date_format':      ['%m/%d/%Y', '%m/%d/%y'],
 
-        'master_cols': {
-            # canonical -> source
-            'Crash_ID':   'Crash_ID',
-            'Crash_Date': 'Crash_Date',
-            'Latitude':   'Latitude',
-            'Longitude':  'Longitude',
-            'ZIP_Code':   'ZIP_Code',
-        },
-
-        'station_cols': {
-            'id':    'TRFC_STATN_ID',
-            'lat':   'LATITUDE',
-            'lon':   'LONGITUDE',
-            'count': 'LATEST_AADT_QTY',
-            'year':  'LATEST_AADT_YR',
-        },
-
-        'bbox': (25.8, 36.5, -106.6, -93.5),
-
-        'vmt': {
-            2015: 258300, 2016: 270700, 2017: 273200, 2018: 282200, 2019: 288400,
-            2020: 260000, 2021: 285200, 2022: 291100, 2023: 301500, 2024: 307800,
-            2025: 307800,
-        },
+    'master_cols': {
+        'Crash_ID':   'Crash_ID',
+        'Crash_Date': 'Crash_Date',
+        'Latitude':   'Latitude',
+        'Longitude':  'Longitude',
+        'ZIP_Code':   'ZIP_Code',
     },
+
+    'station_cols': {
+        'id':    'TRFC_STATN_ID',
+        'lat':   'LATITUDE',
+        'lon':   'LONGITUDE',
+        'count': 'LATEST_AADT_QTY',
+        'year':  'LATEST_AADT_YR',
+    },
+
+    'bbox': (25.8, 36.5, -106.6, -93.5),
+
+    'vmt': {
+        2015: 258300, 2016: 270700, 2017: 273200, 2018: 282200, 2019: 288400,
+        2020: 260000, 2021: 285200, 2022: 291100, 2023: 301500, 2024: 307800,
+        2025: 307800,
+    },
+},
 
     # Add new states below by following the same template.
     # 'AZ': {
