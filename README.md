@@ -24,29 +24,23 @@ The workflow was refactored into a modular, reusable, high-performance architect
 
 ```text
 project/
-│
+├── config.py
 ├── aadt_fill_main.py
 ├── aadt_fill_utils.py
 ├── validation_util.py
 ├── run_validation.py
 ├── discover_mapping.py
-├── config.py
-├── README.md
 │
-├── archive_notebooks/
-│   ├── aadt_filling_texas.ipynb
-│   ├── aadt_filling_texas_polars.ipynb
-│   ├── validation_aadt_filling_texas.ipynb
-│   └── validation_final.ipynb
+├── master_data/
+│   ├── old_aadt.csv
+│   ├── master_cleaned_dataset_2015-2024.csv
+│   └── tx_texas_zip_codes_geo.min.json
 │
 ├── outputs/
 │   └── TX/
 │
-├── old_aadt.csv
-├── master_cleaned_dataset_2015-2024.csv
-├── tx_texas_zip_codes_geo.min.json
+└── README.md
 ```
-
 ---
 
 # How to Run
